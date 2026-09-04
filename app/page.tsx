@@ -71,7 +71,7 @@ export default function Home() {
               <p className="eyebrow">ATAR &amp; ACADEMIC MENTOR</p>
               <h1 id="hero-title">
                 <span className="hero-line">Turn uncertainty into</span>
-                <br className="hero-break" />
+                <br className="hero-break" />{" "}
                 <span className="hero-line"><em>a way forward.</em></span>
               </h1>
               <p className="hero-lead">

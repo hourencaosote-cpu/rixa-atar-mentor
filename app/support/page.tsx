@@ -17,7 +17,7 @@ export default function SupportPage() {
     <>
       <SiteHeader current="/support" />
       <main>
-        <PageHero eyebrow="SUPPORT" currentLabel="Support" title={<><span className="page-title-line">Not just the subject,</span><br className="display-break" /><span className="page-title-line"><em>the way forward</em></span><span className="page-title-tail"> as well.</span></>} lead="Grades, future study, and student life are connected. We work backwards from your goals and turn everyday study, assessment preparation, and applications into one clear plan." />
+      <PageHero eyebrow="SUPPORT" currentLabel="Support" title={<><span className="page-title-line">Not just the subject,</span><br className="display-break" />{" "}<span className="page-title-line"><em>the way forward</em></span><span className="page-title-tail"> as well.</span></>} lead="Grades, future study, and student life are connected. We work backwards from your goals and turn everyday study, assessment preparation, and applications into one clear plan." />
 
         <section className="section audience-section" aria-labelledby="audience-title">
           <div className="section-shell audience-grid">

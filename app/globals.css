@@ -60,18 +60,6 @@ html {
   scroll-padding-top: 96px;
 }
 
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root) {
-  animation: page-out 220ms ease both;
-}
-
-::view-transition-new(root) {
-  animation: page-in 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
 body {
   margin: 0;
   color: var(--ink);
@@ -919,7 +907,7 @@ em {
   aspect-ratio: 4 / 4.8;
   background:
     linear-gradient(180deg, transparent 72%, rgba(5, 20, 31, 0.08)),
-    url("https://raw.githubusercontent.com/hourencaosote-cpu/riku-yoneyama-mentor/8d4366f3bd9b967a325760ad47d1bdf20ef5e83b/public/riku-yoneyama-profile-formal.png")
+    url("/riku-yoneyama-profile-formal.png")
       50% 20% / cover no-repeat;
 }
 
@@ -2315,7 +2303,7 @@ body {
 .profile-photo {
   aspect-ratio: 4 / 4.9;
   background:
-    url("https://raw.githubusercontent.com/hourencaosote-cpu/riku-yoneyama-mentor/8d4366f3bd9b967a325760ad47d1bdf20ef5e83b/public/riku-yoneyama-profile-formal.png")
+    url("/riku-yoneyama-profile-formal.png")
       50% 20% / cover no-repeat;
 }
 
@@ -4105,8 +4093,8 @@ html.motion-ready .reveal-target.is-visible {
   .page-title-line,
   .page-title-tail {
     display: block;
-    width: fit-content;
-    white-space: nowrap;
+    width: auto;
+    white-space: normal;
   }
 
   .display-break {
@@ -4119,8 +4107,8 @@ html.motion-ready .reveal-target.is-visible {
 
   .hero-line {
     display: block;
-    width: fit-content;
-    white-space: nowrap;
+    width: auto;
+    white-space: normal;
   }
 
   .hero-actions {
@@ -5776,6 +5764,7 @@ main h2 em::after {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  mix-blend-mode: multiply;
 }
 
 .wordmark .brand-mark-image {
@@ -5796,12 +5785,14 @@ main h2 em::after {
 }
 
 .brand-mark-image {
-  filter: contrast(1.08);
+  filter: contrast(1.1);
   mix-blend-mode: multiply;
+  opacity: 1;
 }
 
 .brand-mark-inverse .brand-mark-image {
-  filter: invert(1) contrast(1.08);
+  filter: invert(1) contrast(1.1);
+  opacity: 1;
   mix-blend-mode: screen;
 }
 
@@ -6038,6 +6029,11 @@ main h2 em::after {
 }
 
 @media (max-width: 560px) {
+  main h1 {
+    letter-spacing: -0.055em;
+    line-height: 1.02;
+  }
+
   body {
     background-size: 48px 48px;
   }

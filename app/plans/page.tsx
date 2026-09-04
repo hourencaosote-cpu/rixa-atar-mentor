@@ -22,7 +22,7 @@ export default function PlansPage() {
     <>
       <SiteHeader current="/plans" />
       <main>
-        <PageHero eyebrow="PLANS & PRICING" currentLabel="Plans & pricing" title={<>Choose the depth of support that fits your next stage.<br className="display-break" /><em>Two monthly plans.</em></>} lead="Both plans support ATAR classes and include forward planning for each subject and each student. The difference is how much planning, feedback, and accountability happens around the weekly lesson." />
+        <PageHero eyebrow="PLANS & PRICING" currentLabel="Plans & pricing" title={<>Choose the depth of support that fits your next stage.<br className="display-break" />{" "}<em>Two monthly plans.</em></>} lead="Both plans support ATAR classes and include forward planning for each subject and each student. The difference is how much planning, feedback, and accountability happens around the weekly lesson." />
 
         <section className="section plan-section" aria-labelledby="plans-title">
           <div className="section-shell"><div className="section-head plan-head"><div><p className="eyebrow">MONTHLY PLANS</p><h2 id="plans-title">Price and support included</h2></div><p>Both plans are delivered online. We confirm the exact subjects, school calendar, and priorities in the first consultation.</p></div>

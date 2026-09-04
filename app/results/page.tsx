@@ -13,7 +13,7 @@ export default function ResultsPage() {
     <>
       <SiteHeader current="/results" />
       <main>
-        <PageHero eyebrow="PERSONAL RESULTS" currentLabel="Results" title={<>Make clear<br className="display-break" /><em>what the numbers mean.</em></>} lead="These are the results of Riku Yoneyama's own 2023 applications. They are shared as context for the mentoring approach, not as student results or a promise of future outcomes." />
+        <PageHero eyebrow="PERSONAL RESULTS" currentLabel="Results" title={<>Make clear<br className="display-break" />{" "}<em>what the numbers mean.</em></>} lead="These are the results of Riku Yoneyama's own 2023 applications. They are shared as context for the mentoring approach, not as student results or a promise of future outcomes." />
 
         <section className="result-summary" aria-label="Personal application summary"><div className="section-shell result-summary-grid"><article><span>APPLICATIONS</span><strong>5</strong><p>universities applied to</p></article><article><span>OFFERS</span><strong>5 / 5</strong><p>universities made an offer</p></article><article><span>SCHOLARSHIPS</span><strong>5</strong><p>scholarship outcomes</p></article></div></section>
 

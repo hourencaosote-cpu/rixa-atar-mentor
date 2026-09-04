@@ -93,7 +93,7 @@ export function ContactBand() {
           <p className="eyebrow light">FREE CONSULTATION</p>
           <h2 id="contact-band-title">
             Start with the part that still feels unclear,
-            <br className="display-break" />
+            <br className="display-break" />{" "}
             and make a plan together.
           </h2>
         </div>
