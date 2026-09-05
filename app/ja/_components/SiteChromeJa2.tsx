@@ -1,6 +1,13 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { navigation } from "../_data/site";
-import { BrandMark } from "./BrandMark";
+import { BrandMark } from "../../_components/BrandMark";
+
+const navigation = [
+  { href: "/support", label: "サポート" },
+  { href: "/plans", label: "料金プラン" },
+  { href: "/story", label: "ストーリー" },
+  { href: "/results", label: "実績" },
+  { href: "/contact", label: "相談の流れ" },
+] as const;
 
 function japanese2Path(current: string) {
   return current === "/" ? "/ja" : `/ja${current}`;
@@ -10,18 +17,18 @@ type SiteHeaderProps = {
   current?: string;
 };
 
-export function SiteHeader({ current = "/" }: SiteHeaderProps) {
+export function SiteHeaderJa2({ current = "/" }: SiteHeaderProps) {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <a className="wordmark" href="/" aria-label="Go to the home page">
+        <a className="wordmark" href="/ja" aria-label="日本語版トップへ">
           <BrandMark />
         </a>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
+        <nav className="desktop-nav" aria-label="メインナビゲーション">
           {navigation.map((item) => (
             <a
-              href={item.href}
+              href={japanese2Path(item.href)}
               key={item.href}
               aria-current={current === item.href ? "page" : undefined}
             >
@@ -31,40 +38,40 @@ export function SiteHeader({ current = "/" }: SiteHeaderProps) {
         </nav>
 
         <div className="header-actions">
-          <nav className="language-switch" aria-label="Language">
-            <a href="/" lang="en" aria-current="page">
+          <nav className="language-switch" aria-label="言語">
+            <a href={current} lang="en">
               EN
             </a>
-            <a href={japanese2Path(current)} lang="ja">
+            <a href={japanese2Path(current)} lang="ja" aria-current="page">
               日本語
             </a>
           </nav>
 
-          <a className="header-cta" href="/contact#inquiry">
-            Free consultation
+          <a className="header-cta" href="/ja/contact#inquiry">
+            無料相談
             <span aria-hidden="true">↗</span>
           </a>
 
           <details className="mobile-menu">
-            <summary aria-label="Open menu">
+            <summary aria-label="メニューを開く">
               <span />
               <span />
             </summary>
-            <nav aria-label="Mobile navigation">
-              <a href="/" aria-current={current === "/" ? "page" : undefined}>
-                Home
+            <nav aria-label="モバイルナビゲーション">
+              <a href="/ja" aria-current={current === "/" ? "page" : undefined}>
+                トップ
               </a>
               {navigation.map((item) => (
                 <a
-                  href={item.href}
+                  href={japanese2Path(item.href)}
                   key={item.href}
                   aria-current={current === item.href ? "page" : undefined}
                 >
                   {item.label}
                 </a>
               ))}
-              <a className="mobile-menu-cta" href="/contact#inquiry">
-                Request a free consultation
+              <a className="mobile-menu-cta" href="/ja/contact#inquiry">
+                無料相談を申し込む
               </a>
             </nav>
           </details>
@@ -74,25 +81,25 @@ export function SiteHeader({ current = "/" }: SiteHeaderProps) {
   );
 }
 
-export function SiteFooter() {
+export function SiteFooterJa2() {
   return (
     <footer className="site-footer">
       <div className="section-shell footer-grid">
         <div className="footer-brand">
           <BrandMark inverse />
           <strong>RIXA</strong>
-          <p>ATAR &amp; academic mentoring for Australian high school students</p>
+          <p>オーストラリア高校生のためのATAR・学習メンタリング</p>
         </div>
-        <nav aria-label="Footer navigation">
+        <nav aria-label="フッターナビゲーション">
           {navigation.map((item) => (
-            <a href={item.href} key={item.href}>
+            <a href={japanese2Path(item.href)} key={item.href}>
               {item.label}
             </a>
           ))}
         </nav>
         <div className="footer-meta">
           <p>University of Melbourne</p>
-          <p>Online / English</p>
+          <p>オンライン / 日本語</p>
           <p>© {new Date().getFullYear()} RIXA</p>
         </div>
       </div>
@@ -100,28 +107,26 @@ export function SiteFooter() {
   );
 }
 
-export function ContactBand() {
+export function ContactBandJa2() {
   return (
-    <section className="contact-band" aria-labelledby="contact-band-title">
+    <section className="contact-band" aria-labelledby="contact-band-title-ja2">
       <div className="section-shell contact-band-grid">
         <div>
-          <p className="eyebrow light">FREE CONSULTATION</p>
-          <h2 id="contact-band-title">
-            Start with the part that still feels unclear,
-            <br className="display-break" />{" "}
-            and make a plan together.
+          <p className="eyebrow light">無料相談</p>
+          <h2 id="contact-band-title-ja2">
+            まだ整理できていない悩みから、
+            <br className="display-break" />一緒に次の一歩をつくります。
           </h2>
         </div>
         <div className="contact-band-copy">
           <p>
-            In a free consultation, we review your current position and next step in about 30 minutes.
-            You do not need to decide on ongoing support straight away.
+            初回相談では、現在地と次の課題を約30分で確認します。相談しただけで、すぐに継続サポートを決める必要はありません。
           </p>
           <a
             className="button button-light"
-            href="mailto:yoneriku19@gmail.com?subject=Free%20consultation"
+            href="mailto:yoneriku19@gmail.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87"
           >
-            Email for a free consultation
+            メールで無料相談
             <span aria-hidden="true">↗</span>
           </a>
           <div className="contact-details">
@@ -141,17 +146,12 @@ type PageHeroProps = {
   currentLabel: string;
 };
 
-export function PageHero({
-  eyebrow,
-  title,
-  lead,
-  currentLabel,
-}: PageHeroProps) {
+export function PageHeroJa2({ eyebrow, title, lead, currentLabel }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div className="section-shell">
         <p className="breadcrumb">
-          <a href="/">Home</a>
+          <a href="/ja">トップ</a>
           <span aria-hidden="true">/</span>
           <span>{currentLabel}</span>
         </p>

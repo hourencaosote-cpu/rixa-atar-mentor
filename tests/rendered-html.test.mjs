@@ -26,7 +26,13 @@ for (const [pathname, expected] of routes) {
     assert.match(html, /<html lang="en">/i);
     assert.match(html, new RegExp(expected));
     assert.match(html, /src="\/rixa-logo\.png"/);
-    assert.doesNotMatch(html, /[ぁ-んァ-ン一-龯々ー]/);
+    assert.match(html, /class="language-switch"/);
+    assert.match(html, />EN</);
+    assert.match(html, />日本語</);
+    const japanesePath = pathname === "/" ? "/ja" : `/ja${pathname}`;
+    assert.match(html, new RegExp(`href="${japanesePath}"`));
+    const pageCopy = html.replaceAll("日本語", "");
+    assert.doesNotMatch(pageCopy, /[ぁ-んァ-ン一-龯々ー]/);
     assert.match(html, /class="consultation-chat"/);
     assert.match(html, /Academic planning consultation/);
     assert.match(html, /Question 1 \/ 10/);
@@ -80,3 +86,28 @@ test("contact page exposes working contact links", async () => {
   assert.match(html, /href="tel:\+819012906147"/);
   assert.match(html, /Four steps from conversation to support/);
 });
+
+const japanese2Routes = [
+  ["/ja", "迷いを整理して"],
+  ["/ja/support", "科目だけでなく"],
+  ["/ja/plans", "2つの月額プラン"],
+  ["/ja/story", "立て直した過程"],
+  ["/ja/results", "明確に伝える"],
+  ["/ja/contact", "悩みを次の一歩へ"],
+];
+
+for (const [pathname, expected] of japanese2Routes) {
+  test(`server-renders Japanese 2 ${pathname}`, async () => {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, /class="locale-ja2"/);
+    assert.match(html, new RegExp(expected));
+    assert.match(html, /class="language-switch"/);
+    const englishPath = pathname === "/ja" ? "/" : pathname.replace(/^\/ja/, "");
+    assert.match(html, new RegExp(`href="${englishPath}"[^>]*>EN</`));
+    assert.match(html, /aria-current="page">日本語</);
+    assert.doesNotMatch(html, /rixa-jp\.vercel\.app/);
+    assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
+  });
+}
