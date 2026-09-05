@@ -12,7 +12,7 @@ export const approvedConsultationAnswerGuide = {
   university:
     "We can help compare courses, prerequisites, timelines, scholarships, and application steps. Current entry requirements should always be checked against official university information.",
   plans:
-    "Essentials is $200 per month with one 60-minute session each week. Mentor is $400 per month with a 90-minute weekly session plus deeper planning, essay feedback, and accountability support. Both include ATAR support.",
+    "Essentials is $250 per month with one 60-minute session each week (4 sessions per month). Mentor is $450 per month with one 120-minute session each week (4 sessions per month), including a 10-minute break, plus deeper planning, essay feedback, and accountability support. Both include ATAR support.",
 } as const;
 
 export type ApprovedConsultationTopic = keyof typeof approvedConsultationAnswerGuide;

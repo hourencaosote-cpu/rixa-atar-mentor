@@ -55,9 +55,11 @@ test("support explains essay framework and subject scope", async () => {
 test("plans page renders the requested pricing and clear plan differences", async () => {
   const html = await (await render("/plans")).text();
   assert.match(html, /Essentials/);
-  assert.match(html, /\$200/);
+  assert.match(html, /\$250/);
   assert.match(html, /Mentor/);
-  assert.match(html, /\$400/);
+  assert.match(html, /\$450/);
+  assert.match(html, /4 sessions per month/i);
+  assert.match(html, /10-minute break/i);
   assert.match(html, /ATAR classes/);
   assert.match(html, /individual roadmap mapped to assessments and ATAR goals/i);
   assert.match(html, /mid-week accountability/i);

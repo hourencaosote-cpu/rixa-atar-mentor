@@ -4,11 +4,11 @@ import { plans, studentVoices } from "../_data/site";
 
 export const metadata: Metadata = {
   title: "Plans & pricing",
-  description: "Compare the $200 Essentials plan and $400 Mentor plan for Australian high school students, including ATAR support and forward planning.",
+  description: "Compare the $250 Essentials plan and $450 Mentor plan for Australian high school students, including ATAR support and forward planning.",
 };
 
 const comparison = [
-  { label: "Weekly lesson", essentials: "1 x 60 minutes", mentor: "1 x 90 minutes" },
+  { label: "Weekly lesson", essentials: "1 x 60 minutes · 4 sessions/month", mentor: "1 x 120 minutes · 4 sessions/month (includes a 10-minute break)" },
   { label: "ATAR classes", essentials: "Included", mentor: "Included across enrolled subjects" },
   { label: "Subject planning", essentials: "Term-by-term plan for each subject", mentor: "Individual roadmap mapped to assessments and ATAR goals" },
   { label: "Essay support", essentials: "Structure and outline feedback", mentor: "Thesis, paragraph logic, evidence, drafting, and revision" },
@@ -31,7 +31,7 @@ export default function PlansPage() {
           </div>
         </section>
 
-        <section className="comparison-section" aria-labelledby="comparison-title"><div className="section-shell"><div className="section-head light-head comparison-head"><div><p className="eyebrow light">COMPARE</p><h2 id="comparison-title">What is different between the plans?</h2></div><p>Every row shows what is included in Essentials and what is added in Mentor.</p></div><div className="comparison-labels" aria-hidden="true"><span>Area</span><span>Essentials · $200</span><span>Mentor · $400</span></div><div className="comparison-list">{comparison.map((item) => <article key={item.label}><h3>{item.label}</h3><p><small>Essentials · $200</small>{item.essentials}</p><p><small>Mentor · $400</small>{item.mentor}</p></article>)}</div></div></section>
+        <section className="comparison-section" aria-labelledby="comparison-title"><div className="section-shell"><div className="section-head light-head comparison-head"><div><p className="eyebrow light">COMPARE</p><h2 id="comparison-title">What is different between the plans?</h2></div><p>Every row shows what is included in Essentials and what is added in Mentor.</p></div><div className="comparison-labels" aria-hidden="true"><span>Area</span><span>Essentials · $250</span><span>Mentor · $450</span></div><div className="comparison-list">{comparison.map((item) => <article key={item.label}><h3>{item.label}</h3><p><small>Essentials · $250</small>{item.essentials}</p><p><small>Mentor · $450</small>{item.mentor}</p></article>)}</div></div></section>
 
         <section className="section trial-section" aria-labelledby="trial-title"><div className="section-shell trial-grid"><div><p className="eyebrow">FIRST CONSULTATION</p><h2 id="trial-title">Start with a clear plan, before you choose.</h2></div><div><p>We review the current challenge, one subject or assessment, and the next milestone. You do not need to decide on a monthly plan before the conversation.</p><a className="text-link" href="/contact#inquiry">Ask about the right fit <span aria-hidden="true">→</span></a></div></div></section>
 
