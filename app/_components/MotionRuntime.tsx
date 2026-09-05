@@ -78,19 +78,6 @@ export function MotionRuntime() {
           });
         });
 
-        // 見た目の線は細いので、透明な太い当たり判定パス側で拾います。
-        ring
-          .querySelectorAll<SVGPathElement>("[data-ring-hit]")
-          .forEach((hit, index) => {
-            const activate = () => setActive(index);
-            hit.addEventListener("mouseenter", activate);
-            hit.addEventListener("click", activate);
-            cleanups.push(() => {
-              hit.removeEventListener("mouseenter", activate);
-              hit.removeEventListener("click", activate);
-            });
-          });
-
         ring.classList.add("is-ready");
         setActive(0);
         cleanups.push(() => ring.classList.remove("is-ready"));

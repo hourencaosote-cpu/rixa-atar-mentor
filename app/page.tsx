@@ -128,13 +128,21 @@ export default function Home() {
                   </article>
                 ))}
               </div>
-              <div className="subject-ring-wrap">
-                <svg viewBox="0 0 220 220" aria-hidden="true">
-                  {subjectRingArcs.map((path) => <path key={path} d={path} data-ring-arc />)}
-                  {subjectRingArcs.map((path) => <path key={`hit-${path}`} d={path} className="subject-ring-hit" data-ring-hit />)}
-                </svg>
-                <span className="subject-ring-center" aria-hidden="true">ATAR subjects</span>
-                {subjectAreas.map((area, index) => <button type="button" className={`subject-ring-label q${index}`} data-ring-label key={area.category}>{area.title}</button>)}
+              <div className="subject-ring-visual">
+                <div className="subject-ring-wrap">
+                  <svg viewBox="0 0 220 220" aria-hidden="true">
+                    {subjectRingArcs.map((path) => <path key={path} d={path} data-ring-arc />)}
+                  </svg>
+                  <span className="subject-ring-center" aria-hidden="true">ATAR subjects</span>
+                </div>
+                <div className="subject-ring-nav" aria-label="Choose a subject">
+                  {subjectAreas.map((area) => (
+                    <button type="button" className="subject-ring-label" data-ring-label key={area.category} aria-label={`Show ${area.title} details`}>
+                      <span className="subject-ring-label-meta">{area.category}</span>
+                      <strong>{area.title}</strong>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="subject-overview-grid">
