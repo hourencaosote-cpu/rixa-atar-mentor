@@ -83,7 +83,7 @@ test("results page renders campus photography with attribution", async () => {
 test("contact page exposes working contact links", async () => {
   const html = await (await render("/contact")).text();
   assert.match(html, /href="mailto:yoneriku19@gmail\.com/);
-  assert.match(html, /href="tel:\+819012906147"/);
+  assert.match(html, /href="tel:\+61451919748"/);
   assert.match(html, /Four steps from conversation to support/);
 });
 

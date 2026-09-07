@@ -126,7 +126,7 @@ export function ContactBand() {
           </a>
           <div className="contact-details">
             <a href="mailto:yoneriku19@gmail.com">yoneriku19@gmail.com</a>
-            <a href="tel:+819012906147">090-1290-6147</a>
+            <a href="tel:+61451919748">0451919748</a>
           </div>
         </div>
       </div>
